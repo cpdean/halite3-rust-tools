@@ -58,4 +58,4 @@ BOT=sample_bot make upload
 
 And drag the zip file into the box to upload your submission.
 
-![Drag to upload](/docs/upload.drag.png)
+![Drag to upload](docs/upload.drag.png)
