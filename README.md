@@ -26,6 +26,10 @@ Now you're ready to bootstrap the dependencies needed for the halite client tool
 make bootstrap
 ```
 
+The halite client isn't necessary to play halite so if the above breaks for some
+reason, don't worry! You can still follow along in the process below for testing
+that your account is in working order and that you can upload new Rust bots!
+
 
 ### Playing Halite
 
