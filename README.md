@@ -63,3 +63,7 @@ BOT=sample_bot make upload
 And drag the zip file into the box to upload your submission.
 
 ![Drag to upload](/docs/images/upload.drag.png)
+
+After uploading your bot, you can go to [your
+profile](https://halite.io/user?me) and after a few minutes you will see the
+results of the matches that it plays.
