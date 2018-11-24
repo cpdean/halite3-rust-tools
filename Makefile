@@ -32,23 +32,27 @@ endif
 zip: needs_name clean deepclean
 	./make_upload.sh $(BOT)
 
-# broken don't use
 upload: zip
-	# TODO: this wasn't working last time, defaulting to web uploader
-	# pipenv run hlt bot -b packaged_$(BOT).zip
+	# if you have authenticated the client you can uncomment this instead!
+	# pipenv run python -m hlt_client bot -b packaged_$(BOT).zip upload
 	open -a "Google Chrome" https://halite.io/play-programming-challenge
 	open .
 
-
 bootstrap:
 	pipenv --three
+	# needed for hlt_client
 	pipenv install appdirs
 	pipenv install trueskill
+	# needed for parsing replay files
+	pipenv install zstandard
 
 view:
 	# drag and drop your local replay file into the viewer
 	open -a "Google Chrome" https://halite.io/watch-games
 	open replays/
+
+deregister: needs_name
+	yes | pipenv run python -m hlt_client gym deregister "$(BOT)"
 
 register: needs_name
 	# for example
@@ -63,3 +67,10 @@ gym: release
 bots:
 	# pipenv run python -m hlt_client gym --db-path ./pathfinding.db bots
 	pipenv run python -m hlt_client gym bots
+
+count_rust:
+	./check_rust.sh | python -c 'import json, sys; d = json.loads(sys.stdin.read()); sys.stdout.write(str(len(d)) + "\n")'
+
+# look at other rust users
+rank_rust:
+	./check_rust.sh | python3 -c 'import json, sys, pprint; d = json.loads(sys.stdin.read()); list(map(print, ["{0}\t{1: <16}{2:10.3f}".format(str(i+1), str(e["username"]), e["score"]) for i, e in enumerate(d)]))'

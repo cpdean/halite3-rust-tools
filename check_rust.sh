@@ -1,0 +1,2 @@
+#/usr/bin/env bash
+curl 'https://api.2018.halite.io/v1/api/leaderboard?offset=0&limit=999999&filter=language%2C%3D%2CRust' -H 'origin: https://halite.io' -H 'accept-encoding: gzip, deflate, br' -H 'accept-language: en-US,en;q=0.9' -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36' -H 'accept: */*' -H 'referer: https://halite.io/programming-competition-leaderboard?language=Rust' -H 'authority: api.2018.halite.io' --compressed
